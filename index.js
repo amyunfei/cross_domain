@@ -10,7 +10,7 @@ app.use('/', createProxyMiddleware({
 
     // 修改响应头信息，实现跨域并允许带cookie
     onProxyRes: function(proxyRes, req, res) {
-        res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:8080');
+        res.header('Access-Control-Allow-Origin', "*");
         res.header('Access-Control-Allow-Credentials', 'true');
     },
 
@@ -19,5 +19,5 @@ app.use('/', createProxyMiddleware({
     // cookieDomainRewrite: false  // 可以为false，表示不修改
 }));
 
-app.listen(3000);
+app.listen(3000,"0.0.0.0");
 console.log('Proxy server is listen at port 3000...');
